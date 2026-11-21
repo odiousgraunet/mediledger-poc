@@ -1,0 +1,32 @@
+{
+  "name": "mediledger-poc",
+  "version": "1.0.0",
+  "description": "Blockchain-Based Patient-Controlled Medical Record Authentication and Consent Management Network",
+  "private": true,
+  "scripts": {
+    "setup": "npm --prefix blockchain install && npm --prefix backend install && npm --prefix frontend install",
+    "blockchain:compile": "npm --prefix blockchain run compile",
+    "blockchain:test": "npm --prefix blockchain test",
+    "blockchain:node": "npm --prefix blockchain run node",
+    "blockchain:deploy": "npm --prefix blockchain run deploy",
+    "backend:dev": "npm --prefix backend run dev",
+    "backend:start": "npm --prefix backend start",
+    "backend:test": "npm --prefix backend test",
+    "frontend:dev": "npm --prefix frontend run dev",
+    "frontend:build": "npm --prefix frontend run build",
+    "test:all": "npm --prefix blockchain test && npm --prefix backend test"
+  },
+  "keywords": [
+    "blockchain",
+    "healthcare",
+    "ethereum",
+    "solidity",
+    "consent-management",
+    "medical-records",
+    "sha-256",
+    "hardhat",
+    "react"
+  ],
+  "author": "MediLedger Research Team",
+  "license": "MIT"
+}
