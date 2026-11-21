@@ -4,6 +4,8 @@
   "description": "Blockchain-Based Patient-Controlled Medical Record Authentication and Consent Management Network",
   "private": true,
   "scripts": {
+    "start": "node scripts/start_all.js",
+    "quick": "npm --prefix frontend run dev",
     "setup": "npm --prefix blockchain install && npm --prefix backend install && npm --prefix frontend install",
     "blockchain:compile": "npm --prefix blockchain run compile",
     "blockchain:test": "npm --prefix blockchain test",
