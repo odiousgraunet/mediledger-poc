@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediLedger: Academic & Business Presentation Deck</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #0b1120;
+      color: #f1f5f9;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: rgba(15, 23, 42, 0.9);
+      border-bottom: 1px solid #1e293b;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-badge {
+      background: linear-gradient(135deg, #0d9488, #10b981);
+      color: white;
+      font-weight: bold;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+    .logo-title {
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: -0.5px;
+    }
+    .logo-sub {
+      font-size: 11px;
+      color: #94a3b8;
+    }
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn {
+      background: #1e293b;
+      color: #f1f5f9;
+      border: 1px solid #334155;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn:hover { background: #334155; }
+    .btn-primary {
+      background: #14b8a6;
+      color: #042f2e;
+      border-color: #14b8a6;
+    }
+    .btn-primary:hover { background: #2dd4bf; }
+    .slide-counter {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #94a3b8;
+    }
+    .viewport {
+      flex: 1;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+    }
+    .slide {
+      display: none;
+      width: 100%;
+      max-width: 1100px;
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      border-radius: 20px;
+      padding: 40px 50px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      animation: fadeIn 0.3s ease-in-out;
+      max-height: 85vh;
+      overflow-y: auto;
+    }
+    .slide.active { display: block; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .slide-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #14b8a6;
+      background: rgba(20, 184, 166, 0.1);
+      border: 1px solid rgba(20, 184, 166, 0.2);
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 8px;
+      color: #ffffff;
+    }
+    h2 {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+      color: #ffffff;
+    }
+    p.lead {
+      font-size: 15px;
+      color: #94a3b8;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .card-title {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #f8fafc;
+    }
+    .card-text {
+      font-size: 12px;
+      color: #94a3b8;
+      line-height: 1.5;
+    }
+    .stat-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 28px;
+      font-weight: 800;
+      color: #10b981;
+      margin-bottom: 4px;
+    }
+    .stat-label {
+      font-size: 11px;
+      color: #94a3b8;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+    th, td {
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 1px solid #334155;
+    }
+    th {
+      background: #1e293b;
+      color: #94a3b8;
+      text-transform: uppercase;
+      font-size: 10px;
+      font-weight: 700;
+    }
+    td { color: #cbd5e1; }
+    .highlight { color: #14b8a6; font-weight: 600; }
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .badge-success { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+    .badge-danger { background: rgba(239, 68, 68, 0.2); color: #f87171; }
+    .badge-info { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
+    footer {
+      background: #090e17;
+      padding: 10px 24px;
+      border-top: 1px solid #1e293b;
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <div class="logo-badge">🛡️</div>
+      <div>
+        <div class="logo-title">MediLedger Presentation Deck</div>
+        <div class="logo-sub">MBA in Finance Healthcare Blockchain Academic Project</div>
+      </div>
+    </div>
+    <div class="nav-controls">
+      <button class="btn" onclick="prevSlide()">← Prev</button>
+      <span class="slide-counter" id="slideNum">Slide 1 / 14</span>
+      <button class="btn btn-primary" onclick="nextSlide()">Next →</button>
+    </div>
+  </header>
+
+  <div class="viewport">
+
+    <!-- Slide 1: Title -->
+    <div class="slide active">
+      <span class="slide-tag">Academic Research & Demonstration</span>
+      <h1>MediLedger</h1>
+      <p class="lead" style="font-size: 18px; color: #cbd5e1;">
+        Blockchain-Based Patient-Controlled Medical Record Authentication & Consent Management Network
+      </p>
+      <div class="grid-3" style="margin-top: 30px;">
+        <div class="card">
+          <div class="card-title">Academic Domain</div>
+          <p class="card-text">MBA in Finance • Health Economics • Decentralized Identity • Smart Contract Clearinghouse</p>
+        </div>
+        <div class="card">
+          <div class="card-title">Core Technology</div>
+          <p class="card-text">Solidity • Hardhat • Ethers.js • SHA-256 Hashing • React & Vite • Node.js Express</p>
+        </div>
+        <div class="card">
+          <div class="card-title">Core Problem Solved</div>
+          <p class="card-text">$1.44B in Annual Health Insurance Claim Fraud & 14-21 Day Administrative Delays</p>
+        </div>
+      </div>
+      <div style="margin-top: 30px; font-size: 12px; color: #64748b;">
+        Press <strong>Spacebar</strong> or <strong>Right Arrow (→)</strong> to navigate slides.
+      </div>
+    </div>
+
+    <!-- Slide 2: Problem Statement -->
+    <div class="slide">
+      <span class="slide-tag">Industry Context</span>
+      <h2>The Health Insurance Fraud & Administrative Crisis</h2>
+      <p class="lead">Health insurance payouts suffer massive leakage due to paper vulnerabilities and lack of verifiable provenance.</p>
+      <div class="grid-4" style="margin-bottom: 25px;">
+        <div class="card">
+          <div class="stat-val">₹1.08L Cr</div>
+          <div class="stat-label">Indian Health Insurance Market (FY25)</div>
+        </div>
+        <div class="card">
+          <div class="stat-val" style="color: #ef4444;">12.5%</div>
+          <div class="stat-label">Estimated Fraud & Inflation Rate</div>
+        </div>
+        <div class="card">
+          <div class="stat-val" style="color: #f59e0b;">₹1,850</div>
+          <div class="stat-label">Manual Processing Cost / Claim</div>
+        </div>
+        <div class="card">
+          <div class="stat-val" style="color: #60a5fa;">21 Days</div>
+          <div class="stat-label">Average Adjudication Turnaround</div>
+        </div>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title">1. Post-Discharge Bill Alteration</div>
+          <p class="card-text">Hospitals or billing brokers pad diagnostic fees, consumables, and pharmacy invoices prior to submission to TPAs.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">2. Forged Diagnostic Reports</div>
+          <p class="card-text">Troponin lab values and biopsy reports modified via PDF editors to justify unwarranted ICU admissions and surgical claims.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">3. Ghost Patients & Duplication</div>
+          <p class="card-text">Identical invoices formatted under different policyholders across multiple private insurers without a shared audit trail.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3: Consent & Privacy Gap -->
+    <div class="slide">
+      <span class="slide-tag">Regulatory Landscape</span>
+      <h2>The Patient Consent & Privacy Disconnect</h2>
+      <p class="lead">Patients currently lack granular, temporal ownership of their Protected Health Information (PHI).</p>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">The Current Flawed Status Quo</div>
+          <p class="card-text" style="line-height: 1.8;">
+            ❌ <strong>Blanket Paper Waivers:</strong> One-time signature on admission relinquishes broad data rights indefinitely.<br>
+            ❌ <strong>Zero Access Visibility:</strong> Patients cannot see which insurers or sub-contractors inspect their history.<br>
+            ❌ <strong>No Revocation Mechanism:</strong> Once records are shared, patients cannot cancel or expire access.<br>
+            ❌ <strong>Centralized Honeypots:</strong> Large hospital databases remain prime targets for ransomware attacks.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-title">Regulatory Mandates (DPDP Act 2023 & HIPAA)</div>
+          <p class="card-text" style="line-height: 1.8;">
+            ✅ <strong>Section 6 DPDP Act:</strong> Consent must be specific, informed, unconditional, and granular.<br>
+            ✅ <strong>Right to Revoke:</strong> Consent must be revocable with the same ease with which it was granted.<br>
+            ✅ <strong>Data Minimization:</strong> Insurers should only access the exact records required for claim verification.<br>
+            ✅ <strong>Non-Repudiation:</strong> Audit logs must be tamper-proof for court admissibility.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 4: ABDM Comparison -->
+    <div class="slide">
+      <span class="slide-tag">Architectural Benchmark</span>
+      <h2>Comparative Analysis: ABDM vs. MediLedger</h2>
+      <p class="lead">How MediLedger bridges structural gaps in national digital health initiatives.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th>Current ABDM Framework</th>
+            <th>MediLedger Proposed Network</th>
+            <th>Strategic Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Document Authentication</strong></td>
+            <td>Point-to-point TLS transfer; no tamper proofing after download.</td>
+            <td class="highlight">On-Chain SHA-256 smart contract fingerprinting.</td>
+            <td>100% mathematical fraud detection.</td>
+          </tr>
+          <tr>
+            <td><strong>Consent Revocation</strong></td>
+            <td>Centralized gateway database flag subject to sync latency.</td>
+            <td class="highlight">Instantaneous next-block smart contract revocation.</td>
+            <td>True patient data sovereignty.</td>
+          </tr>
+          <tr>
+            <td><strong>Audit Trail Integrity</strong></td>
+            <td>Relational database logs vulnerable to internal admin manipulation.</td>
+            <td class="highlight">Append-only Ethereum EVM event logs (AuditLogger.sol).</td>
+            <td>Court-admissible non-repudiation.</td>
+          </tr>
+          <tr>
+            <td><strong>Adjudication Speed</strong></td>
+            <td>Manual claim review (14 - 21 days).</td>
+            <td class="highlight">Algorithmic hash matching (&lt; 4 hours upon consent).</td>
+            <td>99.6% lower administrative cost.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Slide 5: Proposed Solution -->
+    <div class="slide">
+      <span class="slide-tag">Technical Architecture</span>
+      <h2>The MediLedger Hybrid Architecture</h2>
+      <p class="lead">Decoupling clinical storage from cryptographic verification ensures performance, compliance, and scalability.</p>
+      <div class="grid-2">
+        <div class="card" style="border-left: 4px solid #14b8a6;">
+          <div class="card-title">1. Off-Chain Secure Storage Layer</div>
+          <p class="card-text" style="line-height: 1.6;">
+            • Clinical discharge summaries, lab reports, MRI scans remain in off-chain encrypted repositories.<br>
+            • Preserves patient "Right to be Forgotten" (DPDP Act Section 12).<br>
+            • Avoids Ethereum gas costs for bulk medical files.
+          </p>
+        </div>
+        <div class="card" style="border-left: 4px solid #3b82f6;">
+          <div class="card-title">2. On-Chain Smart Contract Layer</div>
+          <p class="card-text" style="line-height: 1.6;">
+            • Anchors 32-byte cryptographic SHA-256 digests.<br>
+            • Enforces multi-role RBAC access control.<br>
+            • Manages time-bound, granular consent lifecycles.<br>
+            • Emits immutable, timestamped audit events.
+          </p>
+        </div>
+      </div>
+      <div class="grid-4" style="margin-top: 20px;">
+        <div class="card"><div class="card-title" style="color: #34d399;">1. Patient</div><p class="card-text">Data Owner</p></div>
+        <div class="card"><div class="card-title" style="color: #60a5fa;">2. Hospital</div><p class="card-text">Clinical Issuer</p></div>
+        <div class="card"><div class="card-title" style="color: #c084fc;">3. Diagnostic Lab</div><p class="card-text">Testing Facility</p></div>
+        <div class="card"><div class="card-title" style="color: #fbbf24;">4. Insurance Co.</div><p class="card-text">Claim Adjudicator</p></div>
+      </div>
+    </div>
+
+    <!-- Slide 6: Hashing Pipeline -->
+    <div class="slide">
+      <span class="slide-tag">Cryptographic Foundation</span>
+      <h2>SHA-256 Fingerprinting & Canonical JSON</h2>
+      <p class="lead">Mathematical non-repudiation: guarantees identical files match, while altered files fail instantly.</p>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">Deterministic Canonical Serialization</div>
+          <p class="card-text" style="font-size: 11px; line-height: 1.6;">
+            To prevent false-positive hash mismatches caused by key reordering or whitespace:<br><br>
+            <code>Hash = SHA-256(CanonicalJSON(EHR))</code><br><br>
+            • Deterministic key sorting (FIPS 180-4 standard)<br>
+            • Produces consistent 64-character hex string (bytes32)<br>
+            • Collision probability: ~2<sup>-128</sup> (mathematically negligible)
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-title">The Avalanche Effect in Action</div>
+          <p class="card-text" style="font-size: 11px; line-height: 1.6;">
+            <strong>Authentic Document:</strong><br>
+            Bill: ₹84,500 → Hash: <span style="color:#34d399; font-family: monospace;">0x5bb541b28c30...</span><br><br>
+            <strong>Tampered Document:</strong><br>
+            Bill: ₹184,500 (+₹1L) → Hash: <span style="color:#f87171; font-family: monospace;">0x1aace764a1d1...</span><br><br>
+            <em>Result: Smart contract rejects the forged claim instantly.</em>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 7: Smart Contract System -->
+    <div class="slide">
+      <span class="slide-tag">Smart Contract Suite</span>
+      <h2>Modular Solidity Architecture</h2>
+      <p class="lead">Four purpose-built contracts deployed on local Hardhat EVM (Solidity 0.8.20).</p>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title" style="color: #38bdf8;">1. AccessControlManager.sol</div>
+          <p class="card-text">Governs RBAC. Registers and verifies accredited Hospitals, Labs, Insurers, and Patients. Blocks unauthorized malicious registrations.</p>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: #34d399;">2. RecordRegistry.sol</div>
+          <p class="card-text">Maintains mapping of recordId to 32-byte documentHash, issuer, and patient. Provides on-chain <code>verifyRecord(...)</code> method.</p>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: #fbbf24;">3. ConsentManager.sol</div>
+          <p class="card-text">Implements access request queue, patient duration approval (1h / 24h / 7d), dynamic expiration checks, and instant revocation.</p>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: #c084fc;">4. AuditLogger.sol</div>
+          <p class="card-text">Append-only chronological event ledger. Permanently records every registration, access attempt, consent grant, and security alert.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 8: End-to-End Workflow -->
+    <div class="slide">
+      <span class="slide-tag">Operational Lifecycle</span>
+      <h2>The 5-Step MediLedger Workflow</h2>
+      <p class="lead">From initial hospital discharge to automated cashless claim verification.</p>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title">1. Record Anchoring</div>
+          <p class="card-text">Hospital uploads discharge summary off-chain. SHA-256 fingerprint anchored to RecordRegistry.sol.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">2. Consent Request</div>
+          <p class="card-text">Insurer submits on-chain request citing claim adjudication policy #POL-7731 via ConsentManager.sol.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">3. Patient Approval</div>
+          <p class="card-text">Patient inspects purpose and grants 48-hour access window directly from their dashboard.</p>
+        </div>
+      </div>
+      <div class="grid-2" style="margin-top: 16px;">
+        <div class="card">
+          <div class="card-title">4. Cryptographic Claim Verification</div>
+          <p class="card-text">Insurer retrieves off-chain document, hashes it, and verifies it against the smart contract. Authentic records clear in &lt; 4 hours.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">5. Instant Revocation & Audit</div>
+          <p class="card-text">Patient revokes consent when claim settles. All access and verification events immutably preserved in AuditLogger.sol.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 9: Demonstration & Test Results -->
+    <div class="slide">
+      <span class="slide-tag">Verification Evidence</span>
+      <h2>Automated Testing & Live Audit Results</h2>
+      <p class="lead">100% rigorous validation across all smart contracts, backend APIs, and multi-role flows.</p>
+      <div class="grid-3" style="margin-bottom: 20px;">
+        <div class="card">
+          <div class="stat-val" style="color: #34d399;">23 / 23</div>
+          <div class="stat-label">Smart Contract Unit Tests Passed</div>
+        </div>
+        <div class="card">
+          <div class="stat-val" style="color: #38bdf8;">4 / 4</div>
+          <div class="stat-label">Backend Unit Tests Passed</div>
+        </div>
+        <div class="card">
+          <div class="stat-val" style="color: #c084fc;">10 / 10</div>
+          <div class="stat-label">End-to-End Audit Checks Passed</div>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title"><span class="badge badge-success">CASE 1: AUTHENTIC RECORD</span></div>
+          <p class="card-text">Off-chain file REC-2026-001 recomputed hash matches on-chain fingerprint exactly. Result: <strong>VERIFICATION CONFIRMED</strong>.</p>
+        </div>
+        <div class="card">
+          <div class="card-title"><span class="badge badge-danger">CASE 2: SIMULATED TAMPERING</span></div>
+          <p class="card-text">Hospital bill inflated by ₹150,000. Recomputed hash differs from smart contract. Result: <strong>FRAUD DETECTED & BLOCKED</strong>.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 10: Cost-Benefit Analysis -->
+    <div class="slide">
+      <span class="slide-tag">MBA Finance Core</span>
+      <h2>Cost-Benefit & Health Economics Analysis</h2>
+      <p class="lead">Substantial quantifiable savings across administrative processing and fraud mitigation.</p>
+      <div class="grid-4" style="margin-bottom: 20px;">
+        <div class="card">
+          <div class="stat-val">99.6%</div>
+          <div class="stat-label">Cost Reduction / Claim</div>
+        </div>
+        <div class="card">
+          <div class="stat-val">2.3 Mos</div>
+          <div class="stat-label">CapEx Payback Period</div>
+        </div>
+        <div class="card">
+          <div class="stat-val">₹2.74 Cr</div>
+          <div class="stat-label">Direct Admin Savings (Yr 1)</div>
+        </div>
+        <div class="card">
+          <div class="stat-val">₹12.60 Cr</div>
+          <div class="stat-label">Fraud Loss Prevented (Yr 1)</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Per-Claim Unit Economics (Based on 15,000 Claims Baseline)</div>
+        <table>
+          <thead>
+            <tr>
+              <th>Adjudication Method</th>
+              <th>Unit Cost</th>
+              <th>Turnaround Time</th>
+              <th>Fraud Vulnerability</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Traditional Paper / Manual Verification</td>
+              <td style="color:#f87171; font-weight:bold;">₹1,850.00</td>
+              <td>14 - 21 Days</td>
+              <td>High (No cryptographic provenance)</td>
+            </tr>
+            <tr>
+              <td>MediLedger Blockchain Verification</td>
+              <td style="color:#34d399; font-weight:bold;">₹6.50</td>
+              <td>&lt; 4 Hours</td>
+              <td>Zero (Cryptographic non-repudiation)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Slide 11: Business Model -->
+    <div class="slide">
+      <span class="slide-tag">Monetization & Strategy</span>
+      <h2>Business Model & 3-Year Projections</h2>
+      <p class="lead">Hybrid B2B SaaS and transactional micro-fee architecture.</p>
+      <div class="grid-3" style="margin-bottom: 20px;">
+        <div class="card">
+          <div class="card-title">Per-Verification Fee</div>
+          <p class="card-text"><strong>₹15 / verified claim</strong><br>Charged to Insurers & TPAs (replaces ₹1,850 manual expense; 99.2% client savings).</p>
+        </div>
+        <div class="card">
+          <div class="card-title">Hospital SaaS Node</div>
+          <p class="card-text"><strong>₹25,000 / month</strong><br>Per hospital network facility for HIMS integration & unlimited record anchoring.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">Lab API Subscription</div>
+          <p class="card-text"><strong>₹10,000 / month</strong><br>Per diagnostic laboratory network for verified digital reports.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">3-Year Pro-Forma Income Statement (INR in Lakhs)</div>
+        <table>
+          <thead>
+            <tr><th>Metric</th><th>Year 1</th><th>Year 2</th><th>Year 3</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Annual Claim Volume</td><td>15,000</td><td>60,000</td><td>180,000</td></tr>
+            <tr><td>Gross Revenue</td><td>₹19.05L</td><td>₹59.40L</td><td>₹159.00L</td></tr>
+            <tr><td>Operating Expenses</td><td>₹11.60L</td><td>₹21.70L</td><td>₹41.90L</td></tr>
+            <tr style="font-weight:bold; color:#34d399;"><td>EBITDA</td><td>₹7.45L</td><td>₹37.70L</td><td>₹117.10L</td></tr>
+            <tr style="font-weight:bold; color:#38bdf8;"><td>EBIT Margin</td><td>12.8%</td><td>55.0%</td><td>70.5%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Slide 12: Feasibility & Regulatory -->
+    <div class="slide">
+      <span class="slide-tag">Compliance & Governance</span>
+      <h2>Legal & Regulatory Feasibility</h2>
+      <p class="lead">Designed from inception to satisfy Indian and global data privacy legislation.</p>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">Digital Personal Data Protection (DPDP) Act 2023</div>
+          <p class="card-text" style="font-size: 11px; line-height: 1.6;">
+            • <strong>Data Minimization (Sec. 6):</strong> Zero plaintext Protected Health Information (PHI) touches the ledger.<br>
+            • <strong>Right to Erasure (Sec. 12):</strong> Off-chain record deletion renders on-chain hash an uninvertible string, preserving privacy.<br>
+            • <strong>Granular Revocation (Sec. 6[4]):</strong> Patient executes smart contract revocation in 1 click.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-title">IRDAI Health Insurance Standards</div>
+          <p class="card-text" style="font-size: 11px; line-height: 1.6;">
+            • <strong>Turnaround Compliance:</strong> Accelerates cashless claim settlement to meet IRDAI under-4-hour benchmarks.<br>
+            • <strong>Ombudsman Dispute Non-Repudiation:</strong> On-chain immutable audit trail provides conclusive forensic evidence.<br>
+            • <strong>TPA Standardization:</strong> Compatible with National Health Claims Exchange (NHCX).
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 13: Risk Analysis -->
+    <div class="slide">
+      <span class="slide-tag">Strategic Defense</span>
+      <h2>Risk Analysis & Mitigation Strategies</h2>
+      <p class="lead">Proactive evaluation of technical, operational, and financial risks.</p>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title" style="color: #f87171;">Smart Contract Risk</div>
+          <p class="card-text" style="font-size: 11px; line-height: 1.5;">
+            <strong>Risk:</strong> Reentrancy or unauthorized state override.<br><br>
+            <strong>Mitigation:</strong> Modular architecture, strictly typed RBAC guards, 100% automated test coverage, and formal security audits.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: #fbbf24;">Hospital Adoption Inertia</div>
+          <p class="card-text" style="font-size: 11px; line-height: 1.5;">
+            <strong>Risk:</strong> Staff resistance to learning blockchain interfaces.<br><br>
+            <strong>Mitigation:</strong> Background REST API webhooks integrate with existing HIMS software. Clinicians do not change daily routines.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: #38bdf8;">Gas Price Volatility</div>
+          <p class="card-text" style="font-size: 11px; line-height: 1.5;">
+            <strong>Risk:</strong> Network congestion driving transaction costs up.<br><br>
+            <strong>Mitigation:</strong> Production architecture leverages private consortium EVM or Layer-2 rollups (Polygon CDK / Arbitrum Orbit) for sub-cent gas fees.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 14: Conclusion -->
+    <div class="slide">
+      <span class="slide-tag">Project Conclusion</span>
+      <h2>Conclusion & Strategic Recommendations</h2>
+      <p class="lead">MediLedger demonstrates the technical feasibility and overwhelming economic justification for blockchain healthcare clearinghouses.</p>
+      <div class="grid-2" style="margin-bottom: 24px;">
+        <div class="card" style="border-left: 4px solid #34d399;">
+          <div class="card-title">Technical Validation</div>
+          <p class="card-text" style="font-size: 11px; line-height: 1.6;">
+            ✔ Functional full-stack implementation (React + Vite + Node.js + Solidity).<br>
+            ✔ 23/23 Smart Contract tests passed & 10/10 E2E checks passed.<br>
+            ✔ 100% mathematical fraud detection against billing alterations.<br>
+            ✔ Autonomous, time-bound patient consent with instant revocation.
+          </p>
+        </div>
+        <div class="card" style="border-left: 4px solid #38bdf8;">
+          <div class="card-title">Financial & Strategic Impact</div>
+          <p class="card-text" style="font-size: 11px; line-height: 1.6;">
+            ✔ 99.6% reduction in per-claim administrative verification costs.<br>
+            ✔ ₹15.34 Crore financial value created in Year 1 alone.<br>
+            ✔ Rapid capital recovery in 2.3 months.<br>
+            ✔ Full regulatory harmony with Indian DPDP Act 2023.
+          </p>
+        </div>
+      </div>
+      <div style="text-align: center; font-size: 13px; color: #94a3b8; padding: 12px; background: #1e293b; border-radius: 10px;">
+        Thank You! Evaluation Jury & Faculty Members are invited to test the live application.
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div>MediLedger Academic Submission • Master of Business Administration in Finance</div>
+    <div>Local EVM Network: 31337 • Hardhat • Ethers.js • SHA-256</div>
+  </footer>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const counter = document.getElementById('slideNum');
+
+    function showSlide(index) {
+      if (index < 0) index = 0;
+      if (index >= slides.length) index = slides.length - 1;
+      slides[currentSlide].classList.remove('active');
+      currentSlide = index;
+      slides[currentSlide].classList.add('active');
+      counter.textContent = `Slide ${currentSlide + 1} / ${slides.length}`;
+    }
+
+    function nextSlide() { showSlide(currentSlide + 1); }
+    function prevSlide() { showSlide(currentSlide - 1); }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'Enter') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft') {
+        prevSlide();
+      }
+    });
+  </script>
+</body>
+</html>

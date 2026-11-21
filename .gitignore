@@ -8,6 +8,10 @@ blockchain/artifacts/
 blockchain/cache/
 blockchain/typechain/
 blockchain/typechain-types/
+.appdata/
+.localappdata/
+*/.appdata/
+*/.localappdata/
 
 # Production & Build outputs
 dist/
