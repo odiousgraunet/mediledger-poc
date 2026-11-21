@@ -1,0 +1,28 @@
+{
+  "recordId": "REC-2026-005",
+  "documentType": "HISTOPATHOLOGY",
+  "patient": {
+    "uhid": "MED-PAT-771923",
+    "name": "Rahul Sharma",
+    "age": 48,
+    "gender": "Male"
+  },
+  "facility": {
+    "name": "Tata Memorial Centre / Regional Cancer Center",
+    "department": "Oncopathology",
+    "consultant": "Dr. Devika Sen, MD, FRCPath"
+  },
+  "biopsyDetails": {
+    "collectionDate": "2026-10-20T09:00:00Z",
+    "specimenType": "Colonoscopic Polyp Biopsy (Descending Colon)",
+    "grossDescription": "Received single brownish soft tissue fragment measuring 0.4 x 0.3 x 0.2 cm in formalin.",
+    "microscopicDescription": "Sections reveal colonic mucosa with branched tubular glands showing crowded, pseudostratified, elongated nuclei with hyperchromasia and preserved polarity. Lamina propria shows mild chronic inflammatory infiltrate. No architectural distortion or stromal invasion identified.",
+    "pathologicalDiagnosis": "Tubular Adenoma with Low-Grade Dysplasia. Margin clear of high-grade changes or malignancy (Benign Neoplasm).",
+    "icd_o_code": "8211/0"
+  },
+  "recommendations": "Surveillance colonoscopy recommended in 5 years per European and US Multi-Society Task Force guidelines.",
+  "metadata": {
+    "schemaVersion": "FHIR-R4-Aligned",
+    "stainingMethod": "Hematoxylin and Eosin (H&E)"
+  }
+}
