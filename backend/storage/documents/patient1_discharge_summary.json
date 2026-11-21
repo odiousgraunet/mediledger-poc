@@ -1,0 +1,55 @@
+{
+  "recordId": "REC-2026-001",
+  "documentType": "DISCHARGE_SUMMARY",
+  "patient": {
+    "uhid": "MED-PAT-882194",
+    "name": "Jane Doe",
+    "age": 34,
+    "gender": "Female",
+    "bloodGroup": "O-Positive",
+    "contact": "+91-9876543210"
+  },
+  "facility": {
+    "name": "Apollo Super Specialty Hospital",
+    "registrationNo": "HOSP-DEL-2018-094",
+    "department": "Cardiology",
+    "treatingConsultant": "Dr. Aris Thorne, MD, DM"
+  },
+  "clinicalDetails": {
+    "admissionDate": "2026-10-12T08:30:00Z",
+    "dischargeDate": "2026-10-16T14:00:00Z",
+    "primaryDiagnosis": "Acute Uncomplicated Myocarditis (ICD-10 I40.9)",
+    "secondaryDiagnosis": "Essential Hypertension (ICD-10 I10)",
+    "courseInHospital": "Patient presented with acute atypical chest pain and mild dyspnea. Troponin-T elevated at 0.18 ng/mL. Echo revealed mild LV systolic dysfunction with EF 50%. Patient managed conservatively with beta-blockers, ACE inhibitors, and monitored telemetry. Symptoms resolved fully by Day 4.",
+    "investigationsSummary": "ECG showed non-specific ST-T changes. Coronary angiogram normal. Viral panel negative.",
+    "dischargeMedications": [
+      {
+        "medication": "Ramipril",
+        "dosage": "2.5 mg once daily",
+        "duration": "90 days"
+      },
+      {
+        "medication": "Metoprolol Succinate",
+        "dosage": "25 mg once daily",
+        "duration": "90 days"
+      },
+      {
+        "medication": "Aspirin",
+        "dosage": "75 mg once daily",
+        "duration": "30 days"
+      }
+    ],
+    "followUpInstructions": "Review in Cardiology OPD after 4 weeks with repeat 2D-Echocardiogram.",
+    "dischargeStatus": "Hemodynamically Stable"
+  },
+  "billingSummary": {
+    "totalAmountINR": 84500,
+    "preAuthClaimId": "CLM-STAR-2026-7731",
+    "status": "Awaiting Primary Document Authentication"
+  },
+  "metadata": {
+    "schemaVersion": "FHIR-R4-Aligned",
+    "createdAt": "2026-10-16T14:30:00Z",
+    "digitalSignatureProvider": "Apollo-PKI-Cert-2026"
+  }
+}

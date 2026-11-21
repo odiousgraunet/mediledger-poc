@@ -1,0 +1,37 @@
+{
+  "recordId": "REC-2026-004",
+  "documentType": "CARDIOLOGY_ECHO",
+  "patient": {
+    "uhid": "MED-PAT-771923",
+    "name": "Rahul Sharma",
+    "age": 48,
+    "gender": "Male",
+    "contact": "+91-9812345678"
+  },
+  "facility": {
+    "name": "Fortis Escorts Heart Institute",
+    "department": "Non-Invasive Cardiology",
+    "treatingConsultant": "Dr. Meenakshi Sundaram, MD, DM"
+  },
+  "studyDate": "2026-11-02T10:15:00Z",
+  "measurements": {
+    "leftVentricularEjectionFraction": "58%",
+    "lvedd": "46 mm",
+    "lvesd": "30 mm",
+    "ivsThickness": "10 mm",
+    "posteriorWallThickness": "9.5 mm",
+    "leftAtriumDiameter": "34 mm",
+    "aorticRoot": "31 mm"
+  },
+  "dopplerEvaluation": {
+    "mitralValve": "Normal flow, E/A ratio 1.1, trace regurgitation",
+    "aorticValve": "Tri-leaflet, no aortic stenosis or insufficiency, peak gradient 4 mmHg",
+    "tricuspidValve": "Normal, RVSP estimated at 22 mmHg",
+    "pulmonaryValve": "Normal leaflet motion, no pulmonary hypertension"
+  },
+  "impression": "Normal LV systolic function with LVEF 58%. No regional wall motion abnormalities at rest. Grade 1 diastolic dysfunction.",
+  "metadata": {
+    "schemaVersion": "FHIR-R4-Aligned",
+    "machineModel": "GE Healthcare Vivid E95"
+  }
+}

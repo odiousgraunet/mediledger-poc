@@ -1,0 +1,75 @@
+{
+  "recordId": "REC-2026-002",
+  "documentType": "LAB_REPORT",
+  "patient": {
+    "uhid": "MED-PAT-882194",
+    "name": "Jane Doe",
+    "age": 34,
+    "gender": "Female"
+  },
+  "laboratory": {
+    "name": "Metro PathLabs Diagnostic Network",
+    "nablAccreditationNo": "NABL-MC-5421",
+    "specimenCollected": "2026-10-13T07:15:00Z",
+    "reportGenerated": "2026-10-13T11:45:00Z",
+    "pathologist": "Dr. Sunita Rao, MD (Pathology)"
+  },
+  "testPanel": "Comprehensive Cardiac Biomarkers & Lipid Profile",
+  "results": [
+    {
+      "test": "High Sensitivity Troponin T",
+      "value": 0.18,
+      "unit": "ng/mL",
+      "referenceRange": "< 0.014",
+      "flag": "HIGH"
+    },
+    {
+      "test": "CK-MB",
+      "value": 24.5,
+      "unit": "U/L",
+      "referenceRange": "0 - 25",
+      "flag": "NORMAL"
+    },
+    {
+      "test": "Total Cholesterol",
+      "value": 218,
+      "unit": "mg/dL",
+      "referenceRange": "< 200",
+      "flag": "BORDERLINE_HIGH"
+    },
+    {
+      "test": "Triglycerides",
+      "value": 162,
+      "unit": "mg/dL",
+      "referenceRange": "< 150",
+      "flag": "BORDERLINE_HIGH"
+    },
+    {
+      "test": "HDL Cholesterol",
+      "value": 46,
+      "unit": "mg/dL",
+      "referenceRange": "> 50",
+      "flag": "LOW"
+    },
+    {
+      "test": "LDL Cholesterol",
+      "value": 140,
+      "unit": "mg/dL",
+      "referenceRange": "< 100",
+      "flag": "HIGH"
+    },
+    {
+      "test": "hs-CRP",
+      "value": 4.8,
+      "unit": "mg/L",
+      "referenceRange": "< 1.0",
+      "flag": "ELEVATED"
+    }
+  ],
+  "interpretation": "Elevated hs-Troponin-T and hs-CRP consistent with acute myocardial inflammation without evidence of overt transmural infarction.",
+  "metadata": {
+    "schemaVersion": "FHIR-R4-Aligned",
+    "analyzer": "Roche Cobas 8000 Modular System",
+    "barcode": "8902239481920"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "recordId": "REC-2026-003",
+  "documentType": "MRI_SCAN",
+  "patient": {
+    "uhid": "MED-PAT-882194",
+    "name": "Jane Doe",
+    "age": 34,
+    "gender": "Female"
+  },
+  "imagingCenter": {
+    "name": "National Diagnostic & Imaging Institute",
+    "modality": "Magnetic Resonance Imaging (3.0 Tesla)",
+    "scanDate": "2026-09-04T16:00:00Z",
+    "radiologist": "Dr. Kabir Varma, MD, DNB (Radiodiagnosis)"
+  },
+  "studyDescription": "MRI Lumbo-Sacral Spine with Multiplanar T1, T2, and STIR sequences",
+  "findings": {
+    "lumbarVertebrae": "Normal lumbar lordosis maintained. Vertebral body heights and marrow signals within normal limits.",
+    "l4_l5_disc": "Mild diffuse disc bulge with posterior central annular tear causing mild indentation of the anterior thecal sac without significant neural foraminal compromise.",
+    "l5_s1_disc": "Normal disc height and signal. Bilateral exiting and traversing nerve roots appear unremarkable.",
+    "spinalCord": "Conus medullaris terminates at L1 level with normal signal intensity."
+  },
+  "impression": "Mild L4-L5 posterior disc protrusion with annular tear. No evidence of severe spinal canal or neural foraminal stenosis.",
+  "metadata": {
+    "dicomStudyUid": "1.2.840.113619.2.55.3.604688.20260904.160124",
+    "sliceCount": 142,
+    "radiationDose": "0 mSv (Non-ionizing)"
+  }
+}
