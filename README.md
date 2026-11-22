@@ -250,11 +250,20 @@ mediledger-poc/
 │       ├── patient2_cardiac_echo.json
 │       └── patient2_oncology_report.json
 │
-├── docs/                              # Academic & Technical Documentation
-│   ├── TECHNICAL_DOCUMENTATION.md     # Architecture, APIs, security, testing
-│   ├── BUSINESS_CASE_REPORT.md        # MBA health economics, ABDM benchmark, ROI
-│   ├── PRESENTATION_DECK.md           # 14 academic presentation slides
-│   └── DEMO_GUIDE.md                  # Click-by-click jury demonstration guide
+├── docs/                              # Academic & Technical Documentation (Word & Markdown)
+│   ├── MediLedger_Business_Case_Report.docx       # Editable Microsoft Word Business Case
+│   ├── MediLedger_Technical_Documentation.docx   # Editable Microsoft Word Technical Spec
+│   ├── MediLedger_Demonstration_Guide.docx       # Editable Microsoft Word Demo Guide
+│   ├── MediLedger_Master_Academic_Report.docx    # Full Master University Submission Dissertation
+│   ├── TECHNICAL_DOCUMENTATION.md     # Architecture, APIs, security, testing (Markdown)
+│   ├── BUSINESS_CASE_REPORT.md        # MBA health economics, ABDM benchmark, ROI (Markdown)
+│   ├── PRESENTATION_DECK.md           # 14 academic presentation slides (Markdown)
+│   └── DEMO_GUIDE.md                  # Click-by-click jury demonstration guide (Markdown)
+│
+├── open_docs.bat                      # 1-Click launcher to open all Word documents
+├── start_quick_demo.bat               # 1-Click instant demo (zero setup required)
+├── start_demo.bat                     # 1-Click full-stack system launcher
+├── open_presentation.bat              # 1-Click presentation launcher
 │
 └── presentation/                      # Final Presentation Deliverables
     ├── generate_presentation.py       # Python script generating .pptx
@@ -266,16 +275,16 @@ mediledger-poc/
 
 ## 9. Academic Deliverables Index
 
-| Deliverable | File Path | Description |
-|---|---|---|
-| **Technical Documentation** | [`docs/TECHNICAL_DOCUMENTATION.md`](docs/TECHNICAL_DOCUMENTATION.md) | In-depth architecture, data flow, smart contract ABIs, security analysis, test results |
-| **Business Case Report** | [`docs/BUSINESS_CASE_REPORT.md`](docs/BUSINESS_CASE_REPORT.md) | MBA Finance standard: problem statement, ABDM comparison, 3-year financial model, ROI |
-| **Presentation Deck (Markdown)** | [`docs/PRESENTATION_DECK.md`](docs/PRESENTATION_DECK.md) | 14 structured presentation slides with speaker notes |
-| **Presentation Deck (PowerPoint)**| [`presentation/MediLedger_Final_Presentation.pptx`](presentation/MediLedger_Final_Presentation.pptx) | Professional 14-slide PowerPoint deck ready for academic defense |
-| **Interactive Slide Deck (HTML)** | [`presentation/presentation.html`](presentation/presentation.html) | Standalone browser-based presentation deck |
-| **Demonstration Guide** | [`docs/DEMO_GUIDE.md`](docs/DEMO_GUIDE.md) | 5-Act step-by-step evaluator walkthrough |
-| **Smart Contract Test Suite** | [`blockchain/test/`](blockchain/test/) | 23 automated Chai/Mocha tests covering RBAC, registry, consent, E2E |
-| **End-to-End System Audit** | [`blockchain/scripts/run_e2e_audit.js`](blockchain/scripts/run_e2e_audit.js) | Automated 10-step verification audit script |
+| Deliverable | Editable Word Format (.docx) | Markdown Format (.md) | Description |
+|---|---|---|---|
+| **Business Case Report** | [`docs/MediLedger_Business_Case_Report.docx`](docs/MediLedger_Business_Case_Report.docx) | [`docs/BUSINESS_CASE_REPORT.md`](docs/BUSINESS_CASE_REPORT.md) | MBA Finance standard: problem statement, ABDM benchmark, 3-year financial model, ROI |
+| **Technical Documentation** | [`docs/MediLedger_Technical_Documentation.docx`](docs/MediLedger_Technical_Documentation.docx) | [`docs/TECHNICAL_DOCUMENTATION.md`](docs/TECHNICAL_DOCUMENTATION.md) | In-depth architecture, data flow, smart contract ABIs, security analysis, test results |
+| **Demonstration Guide** | [`docs/MediLedger_Demonstration_Guide.docx`](docs/MediLedger_Demonstration_Guide.docx) | [`docs/DEMO_GUIDE.md`](docs/DEMO_GUIDE.md) | 5-Act step-by-step evaluator walkthrough script |
+| **Master Academic Report** | [`docs/MediLedger_Master_Academic_Report.docx`](docs/MediLedger_Master_Academic_Report.docx) | Included in `.docx` | Complete bound dissertation report with cover page and executive abstract |
+| **Presentation Deck (PowerPoint)**| [`presentation/MediLedger_Final_Presentation.pptx`](presentation/MediLedger_Final_Presentation.pptx) | [`docs/PRESENTATION_DECK.md`](docs/PRESENTATION_DECK.md) | Professional 14-slide PowerPoint deck ready for viva defense |
+| **Interactive Slide Deck (HTML)** | [`presentation/presentation.html`](presentation/presentation.html) | — | Standalone browser-based presentation deck |
+| **Smart Contract Test Suite** | — | [`blockchain/test/`](blockchain/test/) | 23 automated Chai/Mocha tests covering RBAC, registry, consent, E2E |
+| **End-to-End System Audit** | — | [`blockchain/scripts/run_e2e_audit.js`](blockchain/scripts/run_e2e_audit.js) | Automated 10-step verification audit script |
 
 ---
 
