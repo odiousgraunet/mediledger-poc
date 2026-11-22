@@ -7,11 +7,20 @@
 
 ---
 
-## 1. Quick Start & Execution Setup
+## 1. Quick Start & Execution Setup (For Any Computer)
 
-MediLedger is designed to run in a 3-tier local environment with an Ethereum EVM devnet (Hardhat), an Express.js REST API gateway, and a React (Vite + Tailwind CSS) client.
+You can demonstrate MediLedger using either:
+1. **Zero-Install Portable Method (Recommended for Other Computers/Laptops):**  
+   - Double-click `MediLedger_Portable_App.html` or `index.html` on **any computer or Mac**.
+   - No Node.js, Git, or Ethereum installation required.
+   - Built-in in-browser Web Crypto SHA-256 engine, all 4 stakeholder roles, interactive fraud detection, MBA ROI calculator, and audit logging.
+2. **Same Wi-Fi Local Sharing:**
+   - If running on your primary laptop, open `http://<YOUR_LOCAL_IP>:3000` (e.g. `http://192.168.0.111:3000`) on any phone, tablet, or examiner laptop on the same Wi-Fi.
+3. **Full Developer Setup (Node.js + Hardhat):**  
+   - Use `start_quick_demo.bat` or `start_demo.bat` on Windows.
+   - Or follow the step-by-step developer instructions below.
 
-### 1.1 Prerequisites
+### 1.1 Prerequisites (Developer Setup Only)
 - **Node.js:** v18.0.0 or higher (v26.x tested & verified)
 - **Git:** Installed
 - **Web Browser:** Google Chrome / Edge / Firefox

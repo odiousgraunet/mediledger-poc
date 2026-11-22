@@ -92,12 +92,42 @@ At the same time, patients face disenfranchisement under blanket hospital admiss
 
 ---
 
-## 6. Installation & Execution Guide
+## 6. How to Run on Any Computer (3 Simple Ways)
 
-### Prerequisites
+> [!TIP]
+> **No Node.js or Ethereum installation required on other computers!** You have three seamless ways to demonstrate MediLedger:
+
+### Way 1: Zero-Install Portable Web App (Works on ANY PC, Mac, Tablet)
+- **File:** Simply open `MediLedger_Portable_App.html` or `index.html` by double-clicking it in any web browser (Chrome, Edge, Safari, Firefox).
+- **Features:** Complete standalone single-file application with React 18, Tailwind CSS, real in-browser Web Crypto SHA-256 cryptographic hashing, all 4 stakeholder roles, interactive fraud detection simulation, MBA economics ROI calculator, and immutable audit logs.
+- **Portability:** You can copy this file to a USB thumb drive, email it, or message it to your professor or examiner. It runs instantly without installing Node.js, Git, or blockchain tools.
+
+### Way 2: Live Cloud Web URL (GitHub Pages)
+- **Live URL:** When enabled on the repository (`Settings` -> `Pages` -> branch `main`), the app is accessible globally at:  
+  `https://odiousgraunet.github.io/mediledger-poc/`
+- Open this link on any computer or mobile phone anywhere in the world.
+
+### Way 3: Live Local Network Sharing (Same Wi-Fi)
+- When running `start_quick_demo.bat` or `npm run frontend:dev` on your host machine, the frontend automatically binds to all network interfaces (`host: 0.0.0.0`).
+- Any device (laptop, phone, tablet) connected to the same Wi-Fi router can access the live application directly by navigating to:  
+  `http://<YOUR_LOCAL_IP>:3000` (e.g., `http://192.168.0.111:3000`)
+
+---
+
+## 7. Local Developer Setup (Full Ethereum EVM & Node.js)
+
+### 1-Click Windows Launchers
+For local evaluation on Windows:
+- **`start_quick_demo.bat`**: Launches the complete frontend with built-in Web Crypto blockchain engine in 3 seconds.
+- **`start_demo.bat`**: Starts the local Hardhat EVM node, deploys smart contracts, starts backend REST gateway, and launches Vite frontend.
+- **`open_presentation.bat`**: Launches the PowerPoint presentation (`presentation/MediLedger_Final_Presentation.pptx`).
+- **`open_docs.bat`**: Opens the editable Microsoft Word documentation folder (`docs/`).
+
+### Manual Step-by-Step Execution
+#### Prerequisites
 - Node.js (v18.0.0 or higher) & npm
 - Git
-- Python 3.10+ (for `.pptx` presentation generation)
+- Python 3.10+ (optional, for `.pptx` presentation generation)
 
 ### Step 1: Install All Dependencies
 ```bash
@@ -140,7 +170,7 @@ npm run frontend:dev
 
 ---
 
-## 7. Automated Testing & Verification Audit
+## 8. Automated Testing & Verification Audit
 
 The system features automated testing across smart contracts, backend APIs, and end-to-end integration:
 
@@ -172,7 +202,7 @@ npx hardhat run scripts/run_e2e_audit.js
 
 ---
 
-## 8. Repository Structure
+## 9. Repository Structure
 
 ```
 mediledger-poc/
@@ -273,7 +303,7 @@ mediledger-poc/
 
 ---
 
-## 9. Academic Deliverables Index
+## 10. Academic Deliverables Index
 
 | Deliverable | Editable Word Format (.docx) | Markdown Format (.md) | Description |
 |---|---|---|---|
@@ -288,7 +318,7 @@ mediledger-poc/
 
 ---
 
-## 10. Known Limitations & Production Roadmap
+## 11. Known Limitations & Production Roadmap
 
 1. **Deployment Network:** Current proof-of-concept executes on an EVM-compatible Hardhat devnet. Production deployment roadmap specifies an enterprise Layer-2 rollup (e.g., Polygon CDK, Arbitrum Orbit) for transaction throughput $> 2,000\text{ TPS}$ with sub-cent gas fees.
 2. **Decentralized Storage:** Transitioning local off-chain storage to an encrypted IPFS / Filecoin cluster utilizing Threshold Proxy Re-Encryption (PRE).
@@ -296,6 +326,6 @@ mediledger-poc/
 
 ---
 
-## 11. Academic Declaration
+## 12. Academic Declaration
 
 This project was developed as an autonomous academic prototype for an MBA in Finance degree track. All clinical data used throughout testing and demonstration is **100% synthetic** (FHIR R4-aligned). No real patient Protected Health Information (PHI) was accessed, stored, or processed. All business case financial projections are labeled with clear hypothetical assumptions.
